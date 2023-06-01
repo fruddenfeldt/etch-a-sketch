@@ -1,0 +1,20 @@
+
+.mainContainer {
+    display: flex;
+    height: 400px;
+    width: 700px;
+    border: solid blue 2px;
+    flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .divClass {
+    border: solid pink 0.5px;
+    height: 10px;
+    width: 10px;
+  }
+  
