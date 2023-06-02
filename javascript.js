@@ -6,6 +6,7 @@ function generateDivs (num)  {
       const square = document.querySelector('.divClass');
       
         genDiv.addEventListener('mouseover', (event) => {
+            genDiv.classList.add('activated');
             console.log("GRID hover confirmed!")
                 })
             
@@ -16,8 +17,13 @@ function generateDivs (num)  {
 
 generateDivs(2108)
 
+const refreshButton = document.querySelector('.refreshButton')
+
+refreshButton.addEventListener('click', () => {location.reload()})
+
 // need to figure out how to dynamically generate sufficient number of grid items
-// need to create function that changes style on hover
+// need to create function that changes style on hover (checkout JavaScript 30)
+
 
 
 
