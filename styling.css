@@ -14,32 +14,32 @@
 .headlineContainer {
   display: flex;
   justify-content: center;
-  width: 700px;
+  width: 500px;
   
   
 }
 
 .drawingContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 10px);
-    grid-template-rows: repeat(auto-fill, 10px);
+    grid-template-columns: repeat(auto-fill, 50px);
+    grid-template-rows: repeat(auto-fill, 50px);
     justify-content: center;
     
     
-    height: 400px;
-    width: 700px;
+    height: 500px;
+    width: 500px;
     border: solid grey 2px;
   
     /* justify-content: center;
     align-items: center; */
   }
   
-  
+  /*
   .divClass {
-    border: solid pink 0.1px; */
-    height: 10px;
-    width: 10px;
-  }
+     border: solid pink 0.1px; 
+    height: 6px;
+    width: 6px;
+  }*/
   
   .activated {
     background-color: red;
@@ -54,6 +54,11 @@
     width: 80px;
   }
 
+
+  .refreshButton:hover {
+    opacity: 0.9;
+  }
+
   .greenButton {
     height: 20px;
     width: 80px;
@@ -63,7 +68,17 @@
     width: 700px;
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
     gap: 10px;
     justify-content: center;
   }
 
+.slider {
+
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
