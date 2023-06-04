@@ -24,8 +24,6 @@
     grid-template-columns: repeat(auto-fill, 6px);
     grid-template-rows: repeat(auto-fill, 6px);
     justify-content: center;
-    
-    
     height: 500px;
     width: 500px;
     border: solid grey 2px;
@@ -36,12 +34,12 @@
   
   
   .divClass {
-    border: solid pink 0.1px; 
+    /* border: solid pink 0.1px; */
     
   }
   
   .activated {
-    background-color: red;
+    background-color: black;
   }
 
   .green {

@@ -1,3 +1,6 @@
+const drawingContainer = document.querySelector('.drawingContainer')
+const greenButton = document.getElementById('greenButton');
+const refreshButton = document.querySelector('.refreshButton')
 
 let slider = document.getElementById("myRange");
 let sliderValue = slider.value;
@@ -10,6 +13,7 @@ slider.addEventListener("input", function() {
 });
 
 function sliderSize (sliderValue) {
+  
   if (sliderValue == 50) 
     {generateDivs(2500); 
       drawingContainer.style.gridTemplateColumns = 'repeat(auto-fill, 10px)';
@@ -67,7 +71,7 @@ function sliderSize (sliderValue) {
   }
   }
 
-const drawingContainer = document.querySelector('.drawingContainer')
+
 function generateDivs (num)  {
   for (let i = 0; i<num; i++) {
     const genDiv = document.createElement('div');
@@ -83,11 +87,29 @@ function generateDivs (num)  {
   }
 }
 
+// On page load, default grid size: 
 generateDivs(7200)
 
-
-  
-
 // Refresh button:
-const refreshButton = document.querySelector('.refreshButton')
-refreshButton.addEventListener('click', () => {location.reload()})
+
+
+
+function eraseAll () {
+  location.reload()
+}
+
+// Green button:
+
+
+greenButton.addEventListener('click', () => {})
+
+function changeColor(event) { 
+  switch (activated.style.backgroundColor) {
+    case 'green':
+      backgroundColor: 'green';
+  }
+
+}
+
+// Event listeners:
+refreshButton.addEventListener('click', eraseAll)
