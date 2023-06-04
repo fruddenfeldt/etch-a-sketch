@@ -21,8 +21,8 @@
 
 .drawingContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 50px);
-    grid-template-rows: repeat(auto-fill, 50px);
+    grid-template-columns: repeat(auto-fill, 6px);
+    grid-template-rows: repeat(auto-fill, 6px);
     justify-content: center;
     
     
@@ -34,12 +34,11 @@
     align-items: center; */
   }
   
-  /*
+  
   .divClass {
-     border: solid pink 0.1px; 
-    height: 6px;
-    width: 6px;
-  }*/
+    border: solid pink 0.1px; 
+    
+  }
   
   .activated {
     background-color: red;
