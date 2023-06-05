@@ -9,32 +9,36 @@
 </head>
 <body>
     
-<div class="mainContainer">
-            <div class="headlineContainer">
-                <h1>Sketchy!</h1>
-            </div>
-    
-            <div class="drawingContainer">
-    
-            </div>
-    
-            <div class="buttonContainer">
-                
 
+<div class="wrapper">
+    
+        <div class="mainContainer">
+                <div class="headlineContainer">
+                    <h1>chalk-a-sketch</h1>
+                </div>
+    
+                <div class="drawingContainer">
+                </div>
+            </div>
+    
+</div>
+
+            <div class="optionContainer">
                 <div class="slidecontainer">
                     <p>Chose grid size:</p>
                     <input type="range" min="50" max="100" value="75" step="5" class="slider" id="myRange">
                   </div>
-                  <button class="refreshButton">Refresh</button>
-                  <button class="color-choice" data-color="black" type="button">Black</button>
-        <button class="color-choice" data-color="rainbow" type="button">Rainbow</button>
-        <button class="color-choice" data-color="gray" type="button">Gray Scale</button>
-        <button class="color-choice" data-color="eraser" type="button">Eraser</button>
-        <!-- <button class="color-choice">Pick: <input type="color" value="#ff0000" id="input-color"></button> -->
-                
+                    <div class="buttonContainer">
+                        <button class="refreshButton">Refresh</button>
+                        <button class="color-choice" data-color="black" type="button">Black</button>
+                        <button class="color-choice" data-color="rainbow" type="button">Rainbow</button>
+                        <button class="color-choice" data-color="gray" type="button">Gray Scale</button>
+                        <button class="color-choice" data-color="eraser" type="button">Eraser</button>
+                        <!-- <button class="color-choice">Pick: <input type="color" value="#ff0000" id="input-color"></button> -->
+                    </div>
             </div>
     
-</div>
+
     <script src="/javascript.js"></script>   
 </body>
 </html>
