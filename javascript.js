@@ -101,7 +101,6 @@ function eraseAll () {
 // Green button:
 
 
-greenButton.addEventListener('click', () => {})
 
 function changeColor(event) { 
   switch (activated.style.backgroundColor) {
