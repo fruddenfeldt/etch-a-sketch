@@ -1,11 +1,14 @@
 const drawingContainer = document.querySelector('.drawingContainer')
-const greenButton = document.getElementById('greenButton');
+// const colorButton = document.getElementById('greenButton');
 const refreshButton = document.querySelector('.refreshButton')
+const colorButtons = document.querySelectorAll('.color-choice')
 
 let slider = document.getElementById("myRange");
 let sliderValue = slider.value;
+var color = 'black'
 
-
+//Need to find way to erase existing sketch when changing size
+//Probably by calling an 'eraseAll' function.
 slider.addEventListener("input", function() {
   sliderValue = slider.value
   console.log(sliderValue)
@@ -75,25 +78,85 @@ function sliderSize (sliderValue) {
 function generateDivs (num)  {
   for (let i = 0; i<num; i++) {
     const genDiv = document.createElement('div');
-    genDiv.classList.add('divClass');
-    const square = document.querySelector('.divClass');
-    
-    genDiv.addEventListener('mouseover', (event) => {
-      genDiv.classList.add('activated');
-      console.log("GRID hover confirmed!")
-    })
-    
-    drawingContainer.appendChild(genDiv)
+    drawingContainer.appendChild(genDiv);
+    // genDiv.classList.add('divClass');
+    // const square = document.querySelector('.divClass');
+
   }
+    //{
+      //  genDiv.classList.add('activated');
+      //  console.log("GRID hover confirmed!")
+      // })
+      
+      var pixels = drawingContainer.querySelectorAll('div')
+      pixels.forEach(pixels => pixels.addEventListener('mouseover', colorGrid))
+  }
+
+
+// New change color function:
+
+function colorGrid() {
+  switch (color) {
+      case 'rainbow':
+          this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+          this.classList.remove('gray');
+          break;  
+      case 'gray':
+          if (this.style.backgroundColor.match(/rgba/)) {
+              let currentOpacity = Number(this.style.backgroundColor.slice(-4, -1));
+              if (currentOpacity <= 0.9) {
+                  this.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.1})`;
+                  this.classList.add('gray');
+              }
+          } else if (this.classList == 'gray' && this.style.backgroundColor == 'rgb(0, 0, 0)') {
+              return;
+          } else {
+              this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';  
+          }
+          break;
+      case 'eraser':
+          this.style.backgroundColor = '#ffffff';
+          this.classList.remove('gray');
+          break;
+      case 'black':
+          this.style.backgroundColor = '#000000';
+          this.classList.remove('gray');
+          console.log('BLACK selected')
+          break;
+      default:
+          this.style.backgroundColor = color;
+          this.classList.remove('gray');
+          break;
+  } 
 }
+
+function changeColor(event) {
+  switch (event.target.dataset.color) { 
+      case 'rainbow':
+          color = 'rainbow';
+          console.log(`${color} selected` )
+          break;  
+      case 'gray':
+          color = 'gray';
+          console.log(`${color} selected` )
+          break;
+      case 'eraser':
+          color = 'eraser';
+          console.log(`${color} selected` )
+          break;
+      default:
+          color = 'black';
+          console.log(`${color} selected` )
+          break;
+  } 
+}
+
+
 
 // On page load, default grid size: 
 generateDivs(7200)
 
 // Refresh button:
-
-
-
 function eraseAll () {
   location.reload()
 }
@@ -102,13 +165,8 @@ function eraseAll () {
 
 
 
-function changeColor(event) { 
-  switch (activated.style.backgroundColor) {
-    case 'green':
-      backgroundColor: 'green';
-  }
 
-}
 
 // Event listeners:
 refreshButton.addEventListener('click', eraseAll)
+colorButtons.forEach(colorButtons => colorButtons.addEventListener('click', changeColor));
