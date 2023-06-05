@@ -1,14 +1,11 @@
 const drawingContainer = document.querySelector('.drawingContainer')
-// const colorButton = document.getElementById('greenButton');
 const refreshButton = document.querySelector('.refreshButton')
 const colorButtons = document.querySelectorAll('.color-choice')
 
 let slider = document.getElementById("myRange");
 let sliderValue = slider.value;
-var color = 'black'
+var color = 'white'
 
-//Need to find way to erase existing sketch when changing size
-//Probably by calling an 'eraseAll' function.
 slider.addEventListener("input", function() {
   sliderValue = slider.value
   console.log(sliderValue)
@@ -79,15 +76,7 @@ function generateDivs (num)  {
   for (let i = 0; i<num; i++) {
     const genDiv = document.createElement('div');
     drawingContainer.appendChild(genDiv);
-    // genDiv.classList.add('divClass');
-    // const square = document.querySelector('.divClass');
-
   }
-    //{
-      //  genDiv.classList.add('activated');
-      //  console.log("GRID hover confirmed!")
-      // })
-      
       var pixels = drawingContainer.querySelectorAll('div')
       pixels.forEach(pixels => pixels.addEventListener('mouseover', colorGrid))
   }
@@ -115,13 +104,16 @@ function colorGrid() {
           }
           break;
       case 'eraser':
-          this.style.backgroundColor = '#ffffff';
+          this.style.backgroundColor = '#274c43';
           this.classList.remove('gray');
           break;
       case 'black':
           this.style.backgroundColor = '#000000';
           this.classList.remove('gray');
           console.log('BLACK selected')
+          break;
+        case 'white':
+          this.style.backgroundColor = 'white';
           break;
       default:
           this.style.backgroundColor = color;
@@ -151,8 +143,6 @@ function changeColor(event) {
   } 
 }
 
-
-
 // On page load, default grid size: 
 generateDivs(7200)
 
@@ -160,11 +150,6 @@ generateDivs(7200)
 function eraseAll () {
   location.reload()
 }
-
-// Green button:
-
-
-
 
 
 // Event listeners:
